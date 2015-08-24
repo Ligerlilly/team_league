@@ -1,0 +1,35 @@
+<h2>Edit</h2>
+
+
+<h4><%= @team.name %></h4>
+
+<ul>
+  <% @team.players.each do |player| %>
+    <li><%= player.name %></li>
+  <% end %>
+</ul>
+
+<form action="/teams/<%= @team.id %>" method="post">
+  <div class="from-group selector">
+    <input type="hidden" name="_method" value="patch">
+
+    <input type="text" name="name" class='form-control'>
+    <select name="player" class='test'>
+      <option>players</option>
+      <% Player.all.each do |player| %>
+        <option value='<%= player.id %>' ><%= player.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+
+
+  <button name="submit" type="submit">Submit</button>
+
+</form>
+<br>
+
+<form  action='/teams/<%= @team.id %>' method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type='submit'>Delete</button>
+</form>

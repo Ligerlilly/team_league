@@ -1,0 +1,32 @@
+<h4>Teams</h4>
+
+<% if Team.any?%>
+  <ul>
+    <% Team.all.each do |team| %>
+      <li><%= team.name %> <a href="/teams/<%= team.id %>/edit">edit</a>
+        <ul>
+          <% team.players.each do |player| %>
+            <li><%= player.name %> <a href="/remove_player/<%= player.id %>">delete</a></li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <p>
+    There are no projects add one.
+  </p>
+
+<% end %>
+
+<form action="/teams" method="post">
+    <div class="form-group">
+      <input name="name" class="form-control" type="text">
+    </div>
+
+    <button name="submit" class='btn btn-primary'>Submit</button>
+
+</form>
+<br>
+<a href="/">Home</a>

@@ -1,0 +1,17 @@
+<form  action="/games" method="post">
+  <div class="form-gropu">
+    <label for="home_team">Select home team</label>
+    <select name="home_team" class='test'>
+      <% Team.all.each do |team| %>
+        <option value='<%= team.id %>'><%= team.name %></option>
+      <% end %>
+    </select>
+    <label for="away_team">Select away team</label>
+    <select name="away_team"  class='test'>
+      <% Team.all.each do |team| %>
+        <option value='<%= team.id %>'><%= team.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <button class='btn btn-success' type='submit'>Play Game</button>
+</form>

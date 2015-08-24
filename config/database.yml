@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: team_league_development
+
+test:
+  adapter: postgresql
+  database: team_league_test

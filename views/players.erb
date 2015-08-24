@@ -1,0 +1,24 @@
+<% if Player.any? %>
+  <ul>
+    <% Player.all.each do |player| %>
+      <li><%= player.name %> <a href="/players/<%= player.id %>/edit">edit</a></li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <p>
+    There are no players add one.
+  </p>
+
+<% end %>
+
+<form action="/players" method="post">
+    <div class="form-group">
+      <input name="name" class="form-control" type="text">
+    </div>
+
+    <button name="submit" class='btn btn-primary'>Submit</button>
+
+</form>
+<br>
+<a href="/">Home</a>
