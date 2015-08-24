@@ -1,1 +1,7 @@
-<h1><%= Team.find(@game.winning_team_id).name %></h1>
+<h1>
+  <% if @game.winning_team_id == 0 %>
+    Tie
+  <% else %>
+    <%= Team.find(@game.winning_team_id).name %>
+  <% end %>
+  </h1>
